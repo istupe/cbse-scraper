@@ -32,6 +32,8 @@ const fields = {
   'Phone No. with STD Code': 'std',
   'Office': 'office',
   'Residence': 'residence',
+  'Status of The School': 'TypeofSchool',
+  'Name of Trust/ Society/ Managing Committee': 'TrustName'
 };
 
 const trim = (text) => text.trim().replace(/(^,)|(,$)/g, '').trim();
@@ -125,6 +127,8 @@ const trim = (text) => text.trim().replace(/(^,)|(,$)/g, '').trim();
     'STD code',
     'Office phone',
     'Residence phone',
+    'TypeofSchool',
+    'TrustName'
   ]);
   sheet.addRows(rows.map((row) => [
     row.ID || '',
@@ -140,6 +144,8 @@ const trim = (text) => text.trim().replace(/(^,)|(,$)/g, '').trim();
     row.std || '',
     row.office || '',
     row.residence || '',
+    row.TypeofSchool || '',
+    row.TrustName || '',
   ]));
   await workbook.xlsx.writeFile(state + '.xlsx');
 })();
